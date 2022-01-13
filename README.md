@@ -6,5 +6,5 @@
 
 Raspberry Pi 3 Model B+
 
-# ライセンス
+## ライセンス
 GPL 3.0
