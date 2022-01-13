@@ -1,15 +1,15 @@
 #include <linux/module.h>
 
-static int __init init_mod(void)//カーネルモジュールの初期化
+static int __init init_mod(void)
 {
 	return 0;
 }
 
-static void __exit cleanup_mod(void)　//後始末
+static void __exit cleanup_mod(void)
 {
 }
 
-module_init(init_mod);//マクロで関数を登録
-module_exit(cleanup_mod);//同上
+module_init(init_mod);
+module_exit(cleanup_mod);
 
 
