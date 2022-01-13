@@ -2,9 +2,9 @@
 
 講義の物をそのまま作りました
 
-#ラズベリーパイのバージョン
+##ラズベリーパイのバージョン
 
-*Raspberry Pi 3 Model B+
+Raspberry Pi 3 Model B+
 
-#ライセンス
+###ライセンス
 GPL 3.0
