@@ -3,6 +3,7 @@
 #include <linux/cdev.h>
 #include <linux/device.h>
 #include <linux/uaccess.h>
+#include <linux/io.h>
 
 MODULE_AUTHOR("Ryuichi Ueda");
 MODULE_DESCRIPTION("driver for LED control");
@@ -12,6 +13,7 @@ MODULE_VERSION("0.0.1");
 static dev_t dev;
 static struct cdev cdv;
 static struct class *cls = NULL;
+static volatile u32 *gpio_base = NULL;
 
 static ssize_t led_write(struct file* filp, const char* buf, size_t count, loff_t* pos)
 {
@@ -45,6 +47,7 @@ static struct file_operations led_fops ={
 static int __init init_mod(void)
 {
 	int retval;
+	gpio_base = ioremap_nocache(0x3f200000, 0xA0);
 	retval = alloc_chrdev_region(&dev, 0, 1, "myled");
 	if(retval < 0){
 	printk(KERN_ERR "alloc_chrdev_region failed. \n");
